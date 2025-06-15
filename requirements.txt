@@ -1,8 +1,8 @@
-uvicorn[standard]
 fastapi
-uvicorn
+uvicorn[standard]
+edge-tts
 torchaudio
 openai
-edge-tts
 scipy
 soundfile
+numpy
