@@ -250,6 +250,7 @@ PING_TIMEOUT = 40  # seconds
 
 async def lifespan(app: FastAPI):
     global configs, clients, histories, translation_cache, last_history
+    last_history = None
     translation_cache = {}
     configs = build_configs()
     clients, histories = build_clients()
