@@ -12,6 +12,8 @@ from scipy import signal
 import subprocess
 import os
 
+global last_history
+last_history = None
 
 def build_configs():
     edge_compatible_voices = {
@@ -249,8 +251,7 @@ current_recorder: WebSocket | None = None
 PING_TIMEOUT = 40  # seconds
 
 async def lifespan(app: FastAPI):
-    global configs, clients, histories, translation_cache, last_history
-    last_history = None
+    global configs, clients, histories, translation_cache
     translation_cache = {}
     configs = build_configs()
     clients, histories = build_clients()
